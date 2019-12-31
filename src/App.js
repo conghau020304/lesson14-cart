@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Link, Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import DemoFormik from "./components/DemoFormik";
+import DemoAxios from "./components/DemoAxios";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <nav className="navbar navbar-inverse">
+          <ul className="nav navbar-nav">
+            <li>
+              <Link to="/demo-formik">DemoFormik</Link>
+            </li>
+            <li>
+              <Link to="/demo-axios">DemoAxios</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route path="/demo-formik">
+            <DemoFormik />
+          </Route>
+          <Route path="/demo-axios">
+            <DemoAxios />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
