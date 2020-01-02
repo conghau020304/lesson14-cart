@@ -1,34 +1,32 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
-import { Link, Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import DemoFormik from "./components/DemoFormik";
-import DemoAxios from "./components/DemoAxios";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ProductContainer from "./containers/ProductContainer";
+import CartContainer from "./containers/CartContainer";
+import Message from "./components/Message";
 
-function App() {
-  return (
-    <Router>
+class App extends Component {
+  render() {
+    return (
       <div>
-        <nav className="navbar navbar-inverse">
-          <ul className="nav navbar-nav">
-            <li>
-              <Link to="/demo-formik">DemoFormik</Link>
-            </li>
-            <li>
-              <Link to="/demo-axios">DemoAxios</Link>
-            </li>
-          </ul>
-        </nav>
-        <Switch>
-          <Route path="/demo-formik">
-            <DemoFormik />
-          </Route>
-          <Route path="/demo-axios">
-            <DemoAxios />
-          </Route>
-        </Switch>
+        {/* Header */}
+        <Header />
+        <main id="mainContainer">
+          <div className="container">
+            {/* Products */}
+            <ProductContainer />
+            {/* Message */}
+            <Message />
+            {/* Cart */}
+            <CartContainer />
+          </div>
+        </main>
+        {/* Footer */}
+        <Footer />
       </div>
-    </Router>
-  );
+    );
+  }
 }
 
 export default App;
