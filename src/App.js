@@ -14,6 +14,7 @@ class App extends Component {
         <Header />
         <main id="mainContainer">
           <div className="container">
+      <p>Hau chinh sua</p>
             {/* Products */}
             <ProductContainer />
             {/* Message */}
